@@ -43,6 +43,12 @@ function App() {
     saveToLS()
   }
 
+  const handleAdd = () => {
+    setTodos([...todos, { id: uuidv4(), todo, isCompleted: false }])
+    setTodo("")
+    saveToLS()
+  }
+
 
 
   return (
