@@ -14,7 +14,14 @@ function App() {
       <Navbar />
       <div className="mx-3 md:container md:mx-auto my-5 rounded-xl p-5 bg-neutral-100 min-h-[80vh] md:w-[37%]">
         <h1 className='font-bold text-center text-3xl'>Manage all your Tasks in one Place</h1>
+        <div className="addTodo my-5 flex flex-col gap-4">
+          <h2 className='flex justify-center text-2xl font-bold'>Add a Todo</h2>
+          <div className="flex">
 
+            <input onChange={handleChange} value={todo} type="text" className='w-full rounded-full px-5 py-1 border-2' />
+            <button onClick={handleAdd} disabled={todo.length <= 3} className='bg-neutral-900 mx-2 rounded-full hover:bg-neutral-700 disabled:bg-neutral-400 p-4 py-2 text-sm font-bold text-white'>Save</button>
+          </div>
+        </div>
         <input className='my-4' id='show' onChange={toggleFinished} type="checkbox" checked={showFinished} />
         <label className='mx-2' htmlFor="show">Show Finished</label>
         <div className='h-[1px] bg-black opacity-15 w-[90%] mx-auto my-2'></div>
