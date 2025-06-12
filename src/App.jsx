@@ -49,6 +49,20 @@ function App() {
     saveToLS()
   }
 
+  const handleChange = (e) => {
+    setTodo(e.target.value)
+  }
+
+  const handleCheckbox = (e) => {
+    let id = e.target.name;
+    let index = todos.findIndex(item => {
+      return item.id === id;
+    })
+    let newTodos = [...todos];
+    newTodos[index].isCompleted = !newTodos[index].isCompleted;
+    setTodos(newTodos)
+    saveToLS()
+  }
 
 
   return (
