@@ -17,7 +17,24 @@ function App() {
     }
   }, [])
 
+  const saveToLS = (params) => {
+    localStorage.setItem("todos", JSON.stringify(todos))
+  }
 
+  const toggleFinished = (e) => {
+    setshowFinished(!showFinished)
+  }
+
+  const handleEdit = (e, id) => {
+    let t = todos.filter(i => i.id === id)
+    setTodo(t[0].todo)
+    let newTodos = todos.filter(item => {
+      return item.id !== id
+    });
+    setTodos(newTodos)
+    saveToLS()
+  }
+  
   return (
     < >
       <Navbar />
