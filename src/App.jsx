@@ -9,6 +9,15 @@ function App() {
   const [todos, setTodos] = useState([])
   const [showFinished, setshowFinished] = useState(true)
 
+  useEffect(() => {
+    let todoString = localStorage.getItem("todos")
+    if (todoString) {
+      let todos = JSON.parse(localStorage.getItem("todos"))
+      setTodos(todos)
+    }
+  }, [])
+
+
   return (
     < >
       <Navbar />
