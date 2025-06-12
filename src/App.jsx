@@ -34,7 +34,17 @@ function App() {
     setTodos(newTodos)
     saveToLS()
   }
-  
+
+  const handleDelete = (e, id) => {
+    let newTodos = todos.filter(item => {
+      return item.id !== id
+    });
+    setTodos(newTodos)
+    saveToLS()
+  }
+
+
+
   return (
     < >
       <Navbar />
